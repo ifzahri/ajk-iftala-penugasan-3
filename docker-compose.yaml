@@ -1,0 +1,32 @@
+version: '3'
+services:
+  laravel:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    depends_on:
+      - mysql
+    volumes:
+      - .:/var/www/html
+    env_file:
+      - .env
+    command: >
+      sh -c "yarn dev && php artisan serve --host=0.0.0.0"
+    networks:
+      - ajk
+
+  mysql:
+    image: mysql:latest
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - ajk
+
+networks:
+  ajk:
+    driver: bridge
+    
