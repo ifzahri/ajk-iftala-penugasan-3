@@ -1,4 +1,6 @@
-# How to run the project
+# ajk-iftala-penugasan-3
+
+## Structure
 
 ## Clone the repository
 
