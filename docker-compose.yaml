@@ -1,5 +1,21 @@
-version: '3'
+version: '3.7'
 services:
+
+  nginx:
+    image: nginx:1.20-alpine
+    ports:
+      - 80:80
+    volumes:
+      - .:/var/www/html
+      - ./nginx-default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - laravel
+      - inertia
+      - mysql
+    container_name: nginx
+    networks:
+      - ajk
+
   laravel:
     build:
       context: .
@@ -12,8 +28,27 @@ services:
       - .:/var/www/html
     env_file:
       - .env
+    container_name: laravel
     command: >
-      sh -c "yarn dev && php artisan serve --host=0.0.0.0"
+      sh -c "php artisan serve --host=0.0.0.0"
+    networks:
+      - ajk
+  
+  inertia:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5173:5173
+    depends_on:
+      - mysql
+    volumes:
+      - .:/var/www/html
+    env_file:
+      - .env
+    container_name: inertia
+    command: >
+      sh -c "yarn dev --host=0.0.0.0"
     networks:
       - ajk
 
@@ -23,6 +58,7 @@ services:
       - ./mysql-data:/var/lib/mysql
     ports:
       - 3306:3306
+    container_name: mysql
     networks:
       - ajk
 

@@ -26,12 +26,8 @@ RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
 
 RUN php artisan key:generate
 
-# RUN php artisan migrate
-
-# RUN php artisan db:seed
-
 RUN php artisan storage:link
 
-EXPOSE 8000
+EXPOSE 8000 5173
 
-CMD php artisan serve --host=0.0.0.0
+CMD service nginx start
