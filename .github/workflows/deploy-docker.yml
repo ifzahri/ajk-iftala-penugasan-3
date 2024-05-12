@@ -1,0 +1,20 @@
+name: Deploy Docker
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    name: Deploying to 34.123.173.151
+    runs-on: ubuntu-latest
+    steps:
+      - name: Connect To Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            cd /home/circl/ajk-iftala-penugasan-3
+            docker compose down
+            docker compose up -d
+            docker compose ps

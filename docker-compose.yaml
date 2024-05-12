@@ -17,9 +17,7 @@ services:
       - ajk
 
   laravel:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: iftala/iftala-tamiyochi:latest
     ports:
       - 8000:8000
     depends_on:
@@ -35,9 +33,7 @@ services:
       - ajk
   
   inertia:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: iftala/iftala-tamiyochi:latest
     ports:
       - 5173:5173
     depends_on:
