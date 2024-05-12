@@ -24,10 +24,6 @@ RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs && \
     npm install -g yarn
 
-RUN php artisan key:generate
-
-RUN php artisan storage:link
-
 EXPOSE 8000 5173
 
 CMD service nginx start
