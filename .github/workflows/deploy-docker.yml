@@ -1,9 +1,10 @@
 name: Deploy Docker
 on:
   workflow_dispatch:
+
 jobs:
-  build:
-    name: Deploying to 34.123.173.151
+  deploy:
+    name: Deploying to 34.30.101.143
     runs-on: ubuntu-latest
     steps:
       - name: Connect To Server
