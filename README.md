@@ -80,3 +80,5 @@ php artisan serve
 ![image](https://github.com/ifzahri/ajk-iftala-penugasan-3/assets/59218445/4d37c9be-0e09-4ecd-bcde-0a1ff8912aea)
 ![image](https://github.com/ifzahri/ajk-iftala-penugasan-3/assets/59218445/89c38324-ba00-4dea-9cd5-3d3ddd1f5290)
 ![image](https://github.com/ifzahri/ajk-iftala-penugasan-3/assets/59218445/ac84a916-6120-4119-b1c2-4fac0144eb45)
+
+trigger
